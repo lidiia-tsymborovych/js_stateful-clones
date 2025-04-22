@@ -32,19 +32,15 @@ function transformStateWithClones(state, actions) {
 }
 
 function addProperties(state, extraData) {
-  const STATE_COPY = { ...state };
-
-  return Object.assign(STATE_COPY, extraData);
+  return Object.assign(state, extraData);
 }
 
 function removeProperties(state, keysToRemove) {
-  const STATE_COPY = { ...state };
-
   for (const prop of keysToRemove) {
-    delete STATE_COPY[prop];
+    delete state[prop];
   }
 
-  return STATE_COPY;
+  return state;
 }
 
 module.exports = transformStateWithClones;
